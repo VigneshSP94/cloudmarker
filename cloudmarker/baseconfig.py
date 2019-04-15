@@ -53,6 +53,26 @@ events:
 alerts:
   filestore:
     plugin: cloudmarker.stores.filestore.FileStore
+  slackalert:
+    plugin: cloudmarker.alerts.slackalert.SlackAlert
+    params:
+      bot_user_token: foo-bot-token
+      to:
+        - foo@example.com
+      text: foo
+  emailalert:
+    plugin: cloudmarker.alerts.emailalert.EmailAlert
+    params:
+      use_ssl: True
+      host: smtp.example.com
+      port: 25
+      sender: CloudMarker Alert <no-reply@example.com>
+      to:
+        - recipient@example.com
+      subject: Anomaly notification
+      body: default text
+      username: alice
+      password: alice@123
 
 audits:
   mockaudit:
